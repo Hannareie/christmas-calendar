@@ -14,7 +14,7 @@ export function DoorGrid({ doors, onDoorClick, simulatedDay }: DoorGridProps) {
 
   const currentMonth = today.getMonth();
   const currentDay = today.getDate();
-  const isDecember = currentMonth === 9;
+  const isDecember = currentMonth === 11;
   const currentDecemberDay = isDecember ? currentDay : 0;
 
   // Countdown text
