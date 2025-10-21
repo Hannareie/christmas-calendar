@@ -16,7 +16,7 @@ export function Modal({ door, onClose }: ModalProps) {
         className="bg-white text-gray-900 p-6 sm:p-8 rounded-2xl shadow-2xl 
                    max-w-md w-full text-center"
       >
-        <h2 className="text-2xl font-bold mb-4">🎁 Luke {door.day}</h2>
+        <h2 className="text-2xl font-bold mb-4">🎁 Luke {door.day} 🎁</h2>
         <p className="mb-6 text-lg">{door.message}</p>
         <button
           onClick={onClose}

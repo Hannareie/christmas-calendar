@@ -12,13 +12,12 @@ export function DoorGrid({ doors, onDoorClick, simulatedDay }: DoorGridProps) {
     ? new Date(new Date().getFullYear(), 11, simulatedDay)
     : new Date();
 
-  const currentMonth = today.getMonth(); // 0 = Jan … 11 = Dec
+  const currentMonth = today.getMonth();
   const currentDay = today.getDate();
-
-  const isDecember = currentMonth === 11;
+  const isDecember = currentMonth === 9;
   const currentDecemberDay = isDecember ? currentDay : 0;
 
-  // Countdown logic
+  // Countdown text
   let countdownText = "";
   if (!isDecember) {
     const decFirst = new Date(today.getFullYear(), 11, 1);
@@ -40,15 +39,15 @@ export function DoorGrid({ doors, onDoorClick, simulatedDay }: DoorGridProps) {
   }
 
   return (
-    <div className="relative w-screen h-screen bg-blue-800 flex flex-col items-center justify-start overflow-hidden pt-10">
+    <div className="relative w-screen min-h-screen bg-blue-800 flex flex-col items-center justify-start overflow-hidden text-white">
       {/* Title */}
-      <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mt-4 mb-6 text-white drop-shadow-lg z-10 text-center">
-        🎅 Familien Reiestads Julekalender 🎅
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-6 mb-4 text-center drop-shadow-lg z-10 px-2">
+        🎄 Familien Reiestads Julekalender 🎄
       </h1>
 
       {/* Countdown */}
       {countdownText && (
-        <p className="mb-6 text-lg font-semibold text-yellow-200 text-center z-10">
+        <p className="text-md sm:text-lg font-semibold text-yellow-200 text-center z-10">
           🎁 {countdownText} 🎁
         </p>
       )}
@@ -66,22 +65,28 @@ export function DoorGrid({ doors, onDoorClick, simulatedDay }: DoorGridProps) {
         />
       ))}
 
-      {/* Tree using CSS triangles */}
-      <div className="absolute bottom-0 w-0 h-0 border-l-[180px] border-l-transparent border-r-[180px] border-r-transparent border-b-[300px] border-b-green-700"></div>
-      <div className="absolute bottom-40 w-0 h-0 border-l-[140px] border-l-transparent border-r-[140px] border-r-transparent border-b-[240px] border-b-green-600"></div>
-      <div className="absolute bottom-80 w-0 h-0 border-l-[100px] border-l-transparent border-r-[100px] border-r-transparent border-b-[180px] border-b-green-500"></div>
+      {/* Tree */}
+      <div className="absolute bottom-0 w-0 h-0 border-l-[25vw] border-l-transparent border-r-[25vw] border-r-transparent border-b-[40vh] border-b-green-700"></div>
+      <div className="absolute bottom-[25vh] w-0 h-0 border-l-[20vw] border-l-transparent border-r-[20vw] border-r-transparent border-b-[30vh] border-b-green-600"></div>
+      <div className="absolute bottom-[45vh] w-0 h-0 border-l-[15vw] border-l-transparent border-r-[15vw] border-r-transparent border-b-[20vh] border-b-green-500"></div>
 
-      {/* Calendar grid */}
-      <div className="relative z-10 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 justify-items-center w-full max-w-[800px] px-4 mt-6">
-        {doors.map((door) => (
-          <DoorCard
-            key={door.day}
-            door={door}
-            onClick={onDoorClick}
-            isUnlocked={isDecember && door.day <= currentDecemberDay}
-            isToday={isDecember && door.day === currentDecemberDay}
-          />
-        ))}
+      {/* Scrollable grid */}
+      <div className="relative z-10 flex-1 w-full overflow-y-auto pb-20">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 justify-items-center px-4 py-6 max-w-[900px] mx-auto">
+          {doors.map((door) => (
+            <div
+              key={door.day}
+              className="w-[40vw] sm:w-[20vw] md:w-[12vw] aspect-square flex items-center justify-center"
+            >
+              <DoorCard
+                door={door}
+                onClick={onDoorClick}
+                isUnlocked={isDecember && door.day <= currentDecemberDay}
+                isToday={isDecember && door.day === currentDecemberDay}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
