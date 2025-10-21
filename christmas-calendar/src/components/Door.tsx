@@ -56,7 +56,7 @@ export function DoorCard({
 
       {/* Door number */}
       <span
-        className={`relative z-10 ${
+        className={`relative z-10 text-3xl ${
           isUnlocked ? "text-red-900" : "text-yellow-100"
         } drop-shadow-md`}
       >
@@ -65,7 +65,7 @@ export function DoorCard({
 
       {/* Lock overlay */}
       {!isUnlocked && (
-        <div className="absolute inset-0 flex items-center justify-center text-yellow-200 text-xl font-bold bg-black/20 rounded-lg">
+        <div className="absolute inset-0 flex items-center justify-center text-yellow-200 text-3xl font-bold bg-black/20 rounded-lg">
           🔒
         </div>
       )}

@@ -39,15 +39,15 @@ export function DoorGrid({ doors, onDoorClick, simulatedDay }: DoorGridProps) {
   }
 
   return (
-    <div className="relative w-screen min-h-screen bg-blue-800 flex flex-col items-center justify-start overflow-hidden text-white">
+    <div className="relative w-screen h-screen bg-blue-800 flex flex-col items-center justify-start overflow-hidden lg:overflow-hidden text-white">
       {/* Title */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-6 mb-4 text-center drop-shadow-lg z-10 px-2">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-6 mb-2 text-center drop-shadow-lg z-10 px-2">
         🎄 Familien Reiestads Julekalender 🎄
       </h1>
 
       {/* Countdown */}
       {countdownText && (
-        <p className="text-md sm:text-lg font-semibold text-yellow-200 text-center z-10">
+        <p className="text-md sm:text-lg font-semibold text-yellow-200 text-center z-10 mb-2">
           🎁 {countdownText} 🎁
         </p>
       )}
@@ -70,13 +70,13 @@ export function DoorGrid({ doors, onDoorClick, simulatedDay }: DoorGridProps) {
       <div className="absolute bottom-[25vh] w-0 h-0 border-l-[20vw] border-l-transparent border-r-[20vw] border-r-transparent border-b-[30vh] border-b-green-600"></div>
       <div className="absolute bottom-[45vh] w-0 h-0 border-l-[15vw] border-l-transparent border-r-[15vw] border-r-transparent border-b-[20vh] border-b-green-500"></div>
 
-      {/* Scrollable grid */}
-      <div className="relative z-10 flex-1 w-full overflow-y-auto pb-20">
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4 justify-items-center px-4 py-6 max-w-[900px] mx-auto">
+      {/* Grid */}
+      <div className="relative z-10 w-full overflow-y-auto lg:overflow-hidden pb-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-1 sm:gap-2 md:gap-2 lg:gap-2 justify-items-center px-2 sm:px-4 py-2 max-w-[1400px] mx-auto">
           {doors.map((door) => (
             <div
               key={door.day}
-              className="w-[40vw] sm:w-[20vw] md:w-[12vw] aspect-square flex items-center justify-center"
+              className="w-[40vw] sm:w-[20vw] md:w-[12vw] lg:w-[12vw] aspect-square flex items-center justify-center"
             >
               <DoorCard
                 door={door}
