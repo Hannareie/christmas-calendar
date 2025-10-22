@@ -70,7 +70,7 @@ export function DoorGrid({ doors, onDoorClick, simulatedDay }: DoorGridProps) {
 
       {/* 📦 Door grid */}
       <div className="relative z-10 pb-8">
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 justify-items-center max-w-[1400px] mx-auto py-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 justify-items-center max-w-[1400px] mx-auto py-4 px-6">
           {doors.map((door) => (
             <div
               key={door.day}

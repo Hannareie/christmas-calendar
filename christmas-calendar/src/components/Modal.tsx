@@ -13,8 +13,7 @@ export function Modal({ door, onClose }: ModalProps) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white text-gray-900 p-6 sm:p-8 rounded-2xl shadow-2xl 
-                   max-w-md w-full text-center"
+        className="bg-white text-gray-900 p-6 sm:p-8 rounded-2xl shadow-2xl max-w-md text-center"
       >
         <h2 className="text-2xl font-bold mb-4">🎁 Luke {door.day} 🎁</h2>
         <p className="mb-6 text-lg">{door.message}</p>
