@@ -39,21 +39,21 @@ export function DoorGrid({ doors, onDoorClick, simulatedDay }: DoorGridProps) {
   }
 
   return (
-    <div className="relative w-full min-h-screen bg-blue-800 text-white overflow-y-auto lg:overflow-hidden">
+    <div className="relative w-full min-h-screen bg-blue-800 text-white overflow-y-auto">
       {/* Title */}
-      <div className="relative z-10 text-center pt-2 mb-2 px-2">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl mt-8 font-bold drop-shadow-lg">
+      <div className="relative z-10 text-center pt-8 mb-2">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold drop-shadow-lg">
           🎄 Familien Reiestads Julekalender 🎄
         </h1>
         {countdownText && (
-          <p className="text-md sm:text-lg font-semibold text-yellow-200 mt-4 pt-2">
+          <p className="text-md sm:text-lg font-semibold text-yellow-200 mt-4">
             🎁 {countdownText} 🎁
           </p>
         )}
       </div>
 
-      {/* ❄️ Snowflakes covering entire screen */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      {/* ❄️ Snowflakes */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {[...Array(60)].map((_, i) => (
           <div
             key={i}
@@ -70,7 +70,7 @@ export function DoorGrid({ doors, onDoorClick, simulatedDay }: DoorGridProps) {
 
       {/* 📦 Door grid */}
       <div className="relative z-10 pb-8">
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-1 sm:gap-2 md:gap-2 justify-items-center px-2 sm:px-4 py-4 max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 justify-items-center max-w-[1400px] mx-auto py-4">
           {doors.map((door) => (
             <div
               key={door.day}
@@ -88,7 +88,7 @@ export function DoorGrid({ doors, onDoorClick, simulatedDay }: DoorGridProps) {
       </div>
 
       {/* 🎄 Mobile/Tablet Tree */}
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none z-0 scale-[1.4] sm:scale-[1.5] md:scale-[1.6] lg:hidden">
+      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none z-0 scale-[1.4] lg:hidden">
         <div className="relative z-40 w-0 h-0 border-l-[7vw] border-l-transparent border-r-[7vw] border-r-transparent border-b-[9vh] border-b-green-400"></div>
         <div className="relative z-30 -mt-[5vh] w-0 h-0 border-l-[9vw] border-l-transparent border-r-[9vw] border-r-transparent border-b-[10vh] border-b-green-500"></div>
         <div className="relative z-20 -mt-[6vh] w-0 h-0 border-l-[11vw] border-l-transparent border-r-[11vw] border-r-transparent border-b-[11vh] border-b-green-600"></div>
